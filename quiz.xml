@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+	<q>
+		<text>
+			Dit is vraag 1?
+		</text>
+		<answer type="multiple-choice-radio">
+			<a>
+				Dit is antwoord 1
+			</a>
+			<a correctAnswer="">
+				Dit is antwoord 2
+			</a>
+			<a>
+				Dit is antwoord 3
+			</a>
+		</answer>
+	</q>
+	
+	<q>
+		<text>
+			Dit is vraag 1?
+		</text>
+		<answer type="multiple-choice-radio">
+			<a>
+				Dit is antwoord 1
+			</a>
+			<a correctAnswer="">
+				Dit is antwoord 2
+			</a>
+			<a>
+				Dit is antwoord 3
+			</a>
+		</answer>
+	</q>
+	
+	<q>
+		<text>
+			Dit is vraag 1?
+		</text>
+		<answer type="multiple-choice-radio">
+			<a>
+				Dit is antwoord 1
+			</a>
+			<a correctAnswer="">
+				Dit is antwoord 2
+			</a>
+			<a>
+				Dit is antwoord 3
+			</a>
+		</answer>
+	</q>
+	
+</quiz>

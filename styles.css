@@ -1,0 +1,132 @@
+:root {
+	--color-light: #ffffff;
+	--color-medium: #8d8d8d;
+	--color-dark: #696969;
+	--color-text-dark: #616161;
+	--color-text-light: #ebebeb;
+	font-size: 1rem;	
+}
+
+body {
+	font-family: Calibri;
+	color: var(--color-text-dark);
+	background: var(--color-light);
+	font-size: large;
+	margin: 0;
+}
+
+.title {
+	background: var(--color-dark);
+	color: var(--color-text-light);
+	padding: 1em 0;
+	font-size: xx-large;
+	text-align: center;
+}
+
+.navbar {
+	background: var(--color-medium);
+	color: var(--color-text-light);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.navbar>* {
+	padding: 2vh;
+	text-decoration: none;
+	color: inherit;
+	flex-grow: 1;
+	flex-basis: 0;
+	text-align: center;
+	font-size: x-large;
+}
+
+.navbar>*:hover {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.container {
+	padding: 1em;
+}
+
+#video {
+	max-height: 421.875px;
+	overflow: hidden;
+}
+
+#video>* {
+	margin: auto;
+	max-width: 750px;
+	max-height: 421.875px;
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%;
+}
+
+#video>*>* {
+	position: absolute;
+	max-width: 750px;
+	max-height: 421.875px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	font-size: 1.5rem;
+}
+
+#quiz {
+	height: 80vh;
+	position: relative;
+	overflow: hidden;
+}
+
+#quiz>*>* {
+	font-size: x-large;
+	cursor: pointer;
+	position: relative;
+}
+
+#quiz>h1 {
+	font-size: 2.5rem;
+}
+
+#quiz>button {
+	font-size: large;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+button {
+	padding: 1em 2em;
+	border: none;
+	background: var(--color-dark);
+	color: var(--color-text-light);
+}
+#quiz>*>*:hover {
+	background: #ccc;
+}
+.checkbox>* {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	display: block;
+	background: blue;
+	top: 50%;
+	left: 0;
+	transform: translate(-50%, 0);
+}
+#quiz>*>*:hover>.checkbox>* {
+	background: red;
+}
+p {
+	margin: 0;
+	padding: 24px 0;
+}
+
+@media (max-width: 400px) {
+	p {
+		font-size: 1.2rem;
+	}
+}
