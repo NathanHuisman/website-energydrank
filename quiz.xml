@@ -2,53 +2,59 @@
 <quiz>
 	<q>
 		<text>
-			Dit is vraag 1?
+			Hoeveel liter energiedrank drinkt een gemiddelde Nederlander per jaar?
 		</text>
 		<answer type="multiple-choice-radio">
 			<a>
-				Dit is antwoord 1
+				1 liter
 			</a>
-			<a correctAnswer="">
-				Dit is antwoord 2
+			<a correctAnswer>
+				2 liter
 			</a>
 			<a>
-				Dit is antwoord 3
+				3 liter
 			</a>
 		</answer>
+		<des>
+			Antwoord B, een gemiddelde adolescent (12-16 jaar) drinkt 2,1 liter per jaar, de gemiddelde volwassene drinkt maar 2 liter.
+		</des>
 	</q>
-	
 	<q>
 		<text>
-			Dit is vraag 1?
+			Welke gevolgen kunnen NIET komen van energydrank?
 		</text>
 		<answer type="multiple-choice-radio">
-			<a>
-				Dit is antwoord 1
-			</a>
-			<a correctAnswer="">
-				Dit is antwoord 2
+			<a correctAnswer>
+				Uitval van zintuigen
 			</a>
 			<a>
-				Dit is antwoord 3
+				Hartproblemen
+			</a>
+			<a>
+				Rillen / beven
 			</a>
 		</answer>
+		<des>
+			Antwoord A, niet alle effecten van energiedrank zijn wetenschappelijk bewezen, maar uitval van zintuigen zit (nog) niet op de lijst van mogelijke effecten, B en C zijn de meest voorkomende.
+		</des>
 	</q>
-	
 	<q>
 		<text>
-			Dit is vraag 1?
+			Wat is GEEN energiedrank?
 		</text>
-		<answer type="multiple-choice-radio">
+		<answer>
 			<a>
-				Dit is antwoord 1
-			</a>
-			<a correctAnswer="">
-				Dit is antwoord 2
+				Red Bull
 			</a>
 			<a>
-				Dit is antwoord 3
+				Action
+			</a>
+			<a correctAnswer>
+				AA
 			</a>
 		</answer>
+		<des>
+			Antwoord C, op de verpakking staat wel "high energy", dat klopt ook, maar het is een boostdrank en geen energiedrank, zoals Red Bull, waar heel veel suiker en cafeine in zit.
+		</des>
 	</q>
-	
 </quiz>

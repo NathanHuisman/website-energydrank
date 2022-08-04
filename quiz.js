@@ -1,8 +1,8 @@
 /*
-	██  ██  ██    ████    ██████    ██    ██  ██████  ██    ██    ██████
-	██  ██  ██  ██    ██  ██    ██  ████  ██    ██    ████  ██  ██
-	██  ██  ██  ████████  ██████    ██  ████    ██    ██  ████  ██    ██
-	  ██  ██    ██    ██  ██    ██  ██    ██  ██████  ██    ██    ██████
+	██  ██  ██    ████    ██████    ██    ██  ██████  ██    ██    ██████  
+	██  ██  ██  ██    ██  ██    ██  ████  ██    ██    ████  ██  ██        ██
+	██  ██  ██  ████████  ██████    ██  ████    ██    ██  ████  ██    ██  
+	  ██  ██    ██    ██  ██    ██  ██    ██  ██████  ██    ██    ██████  ██
 	
 	  ████  ██████      ████    ██████    ██████    ██  ██      ████    ████    ██████    ██████
 	██      ██    ██  ██    ██  ██    ██  ██    ██  ██  ██    ██      ██    ██  ██    ██  ██____
@@ -10,6 +10,11 @@
 	  ████  ██    ██  ██    ██  ██        ██          ██        ████    ████    ██████    ██████
 
 	...and crappy ANSI art...
+	But it works! (at least, i hope it works...)
+	I wouldn't advise to read it, you'll think you know nothing of life because you don't know how this could possibly work...
+	-----DEPRESSION ALERT!!!!!-----
+
+	made by Nathan Huisman
 */
 
 let newLine = String.fromCharCode(0x0A);
@@ -29,7 +34,7 @@ async function loadQuiz(url) {
 	for (i = 0; i < XMLArray.length; i++) {
 		let XML = XMLArray[i].slice(XMLArray[i].indexOf(">") + 1);
 		XML = replaceTag(XML, "text", "h1");
-		let answerType = /<answer((.|\s)*?)type((.|\s)*?)=((.|\s)*?)"((.|\s)*?)"((.|\s)*?)>/.exec(XML)[7];
+		let answerType = "multiple-choice-radio";
 		console.log(answerType);
 		switch (answerType) {
 			case "text": {
@@ -53,7 +58,8 @@ async function loadQuiz(url) {
 				XML = replaceTag(XML, "a", "input", "type=\"checkmark\" name=\"multiple-choice-" + i + "\"", true);
 			}
 		}
-		XML += newLine + "<button class=\"continue\" onclick=\"goToPage(" + (i + 1) + ");\">Volgende vraag</button>";
+		XML = replaceTag(XML, "des", "p", "id=\"answer\"");
+		XML += newLine + "<button class=\"continue\" onclick=\"goToPage(" + (i + 1) + ");\">Antwoord</button>";
 		XMLArray[i] = XML;
 	}
 	document.querySelector("#quiz").innerHTML = XMLArray[0];
@@ -94,23 +100,35 @@ function replaceTag(text, tag, newTag, newAttr, keepAttr) {
 
 function goToPage(page) {
 	let quizWindow = document.querySelector("#quiz");
+	let quizElms = quizWindow.querySelectorAll("*");
 	quizDoneArray.push(quizWindow.querySelectorAll("*"));
 	if (page >= XMLArray.length) {
 		finishQuiz(quizDoneArray);
 		console.log(quizDoneArray);
 		return;
 	}
-	quizWindow.innerHTML = XMLArray[page];
-	let quizEls = document.querySelectorAll("#quiz > * > p");
-	if (quizEls) {
-		for (i = 0; i < quizEls.length; i++) {
-			quizEls[i].addEventListener("click", evt => {
-				let button = evt.target.querySelector("input");
-				if (!button) return;
-				button.click();
+	for (let i = 0; i < quizElms.length; i++) {
+		if (quizElms[i].tagName.toLowerCase() === "button") {
+			quizElms[i].innerHTML = "Volgende vraag";
+			quizElms[i].removeAttribute("onclick");
+			quizElms[i].addEventListener("click", () => {
+				quizWindow.innerHTML = XMLArray[page];
+				let quizEls = document.querySelectorAll("#quiz > * > p");
+				if (quizEls) {
+					for (i = 0; i < quizEls.length; i++) {
+						quizEls[i].addEventListener("click", evt => {
+							let button = evt.target.querySelector("input");
+							if (!button) return;
+							button.click();
+						});
+					}
+				}
 			});
+			continue;
 		}
+		quizElms[i].style.display = "none";
 	}
+	quizWindow.querySelector("p#answer").style.display = "block";
 }
 
 
